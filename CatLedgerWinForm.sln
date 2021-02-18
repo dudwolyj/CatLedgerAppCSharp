@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatLedgerWinForm", "CatLedgerWinForm\CatLedgerWinForm.csproj", "{8AD778DA-7954-403B-A302-BB2B5F5A65FD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8AD778DA-7954-403B-A302-BB2B5F5A65FD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AD778DA-7954-403B-A302-BB2B5F5A65FD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AD778DA-7954-403B-A302-BB2B5F5A65FD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AD778DA-7954-403B-A302-BB2B5F5A65FD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BF1EA4EA-226A-42FF-A8FA-DC0999FC08C3}
+	EndGlobalSection
+EndGlobal
