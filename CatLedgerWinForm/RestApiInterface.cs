@@ -8,7 +8,7 @@ namespace CatLedgerWinForm
 {
     class RestApiInterface
     {
-        private static readonly string rootURL = "http://ec2-52-78-166-177.ap-northeast-2.compute.amazonaws.com";
+        private static readonly string rootURL = "http://ec2-3-36-57-212.ap-northeast-2.compute.amazonaws.com";
         public static string RequestURL(string url, string param)
         {
             string response = "";

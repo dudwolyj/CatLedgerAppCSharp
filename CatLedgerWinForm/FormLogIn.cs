@@ -40,11 +40,11 @@ namespace CatLedgerWinForm
                 StringBuilder RequestParam = new StringBuilder();
                 RequestParam.Append("email=");
                 RequestParam.Append(Email);
-                RequestParam.Append("?password=");
+                RequestParam.Append("&password=");
                 RequestParam.Append(Password);
 
-                //string Response = RestApiInterface.RequestURL(LoginURL, RequestParam.ToString());
-                //MessageBox.Show(Response);
+                string Response = RestApiInterface.RequestURL(LoginURL, RequestParam.ToString());
+                MessageBox.Show(Response);
 
                 Program.frmMainPage.Show();
                 Program.frmLogIn.Hide();
