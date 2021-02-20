@@ -40,11 +40,13 @@ namespace CatLedgerWinForm
             this.labelConformCode = new System.Windows.Forms.Label();
             this.textBoxConformCode = new System.Windows.Forms.TextBox();
             this.btnLogIn = new System.Windows.Forms.Button();
+            this.btnSendCode = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnSignUp
             // 
-            this.btnSignUp.Location = new System.Drawing.Point(93, 253);
+            this.btnSignUp.Enabled = false;
+            this.btnSignUp.Location = new System.Drawing.Point(93, 408);
             this.btnSignUp.Name = "btnSignUp";
             this.btnSignUp.Size = new System.Drawing.Size(440, 34);
             this.btnSignUp.TabIndex = 0;
@@ -95,16 +97,19 @@ namespace CatLedgerWinForm
             // 
             // btnConformCode
             // 
-            this.btnConformCode.Location = new System.Drawing.Point(371, 544);
+            this.btnConformCode.Enabled = false;
+            this.btnConformCode.Location = new System.Drawing.Point(374, 283);
             this.btnConformCode.Name = "btnConformCode";
             this.btnConformCode.Size = new System.Drawing.Size(112, 34);
             this.btnConformCode.TabIndex = 6;
             this.btnConformCode.Text = "인증하기";
             this.btnConformCode.UseVisualStyleBackColor = true;
+            this.btnConformCode.Click += new System.EventHandler(this.btnConformCode_Click);
             // 
             // labelExplain
             // 
-            this.labelExplain.Location = new System.Drawing.Point(77, 465);
+            this.labelExplain.Enabled = false;
+            this.labelExplain.Location = new System.Drawing.Point(93, 332);
             this.labelExplain.Name = "labelExplain";
             this.labelExplain.Size = new System.Drawing.Size(456, 61);
             this.labelExplain.TabIndex = 7;
@@ -113,7 +118,7 @@ namespace CatLedgerWinForm
             // labelConformCode
             // 
             this.labelConformCode.AutoSize = true;
-            this.labelConformCode.Location = new System.Drawing.Point(93, 544);
+            this.labelConformCode.Location = new System.Drawing.Point(96, 283);
             this.labelConformCode.Name = "labelConformCode";
             this.labelConformCode.Size = new System.Drawing.Size(94, 25);
             this.labelConformCode.TabIndex = 8;
@@ -121,7 +126,7 @@ namespace CatLedgerWinForm
             // 
             // textBoxConformCode
             // 
-            this.textBoxConformCode.Location = new System.Drawing.Point(193, 544);
+            this.textBoxConformCode.Location = new System.Drawing.Point(196, 283);
             this.textBoxConformCode.Name = "textBoxConformCode";
             this.textBoxConformCode.Size = new System.Drawing.Size(150, 31);
             this.textBoxConformCode.TabIndex = 9;
@@ -136,11 +141,22 @@ namespace CatLedgerWinForm
             this.btnLogIn.UseVisualStyleBackColor = true;
             this.btnLogIn.Click += new System.EventHandler(this.btnLogIn_Click);
             // 
+            // btnSendCode
+            // 
+            this.btnSendCode.Location = new System.Drawing.Point(96, 228);
+            this.btnSendCode.Name = "btnSendCode";
+            this.btnSendCode.Size = new System.Drawing.Size(440, 34);
+            this.btnSendCode.TabIndex = 11;
+            this.btnSendCode.Text = "인증코드 받기";
+            this.btnSendCode.UseVisualStyleBackColor = true;
+            this.btnSendCode.Click += new System.EventHandler(this.btnSendCode_Click);
+            // 
             // FormSignUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(597, 730);
+            this.Controls.Add(this.btnSendCode);
             this.Controls.Add(this.btnLogIn);
             this.Controls.Add(this.textBoxConformCode);
             this.Controls.Add(this.labelConformCode);
@@ -172,6 +188,7 @@ namespace CatLedgerWinForm
         private System.Windows.Forms.Label labelConformCode;
         private System.Windows.Forms.TextBox textBoxConformCode;
         private System.Windows.Forms.Button btnLogIn;
+        private System.Windows.Forms.Button btnSendCode;
     }
 }
 
