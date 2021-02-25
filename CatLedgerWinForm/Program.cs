@@ -13,6 +13,7 @@ namespace CatLedgerWinForm
         public static readonly FormSignUp frmSignUp = new FormSignUp();
         public static readonly FormLogIn frmLogIn = new FormLogIn();
         public static readonly FormMainPage frmMainPage = new FormMainPage();
+        public static CommonData commonData = new CommonData();
 
         /// <summary>
         ///  The main entry point for the application.

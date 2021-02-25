@@ -18,6 +18,7 @@ namespace CatLedgerWinForm
     public partial class FormSignUp : Form
     {
         private static readonly string SignUpURL = "signup";
+        private static readonly string CheckEmailURL = "signup/checkemail";
         public FormSignUp()
         {
             InitializeComponent();
@@ -48,10 +49,12 @@ namespace CatLedgerWinForm
             }
             catch (RegexMatchTimeoutException e)
             {
+                MessageBox.Show(e.ToString());
                 return false;
             }
             catch (ArgumentException e)
             {
+                MessageBox.Show(e.ToString());
                 return false;
             }
 
@@ -72,16 +75,35 @@ namespace CatLedgerWinForm
             StringBuilder RequestParam = new StringBuilder();
             RequestParam.Append("email=");
             RequestParam.Append(email);
-            string resultGet = RestApiInterface.RequestURL(SignUpURL, RequestParam.ToString());
+            string resultGet = RestApiInterface.RequestURL(CheckEmailURL, RequestParam.ToString());
 
             JObject jsonRoot = JObject.Parse(resultGet);
-            if(jsonRoot.ContainsKey("status"))
+            if (jsonRoot.ContainsKey("statuscode"))
             {
                 // 200 : 정상, 300 : 중복
-                return jsonRoot["status"].ToString().Equals("200");
+                if (jsonRoot["statuscode"].ToString().Equals("200"))
+                {
+                    if (jsonRoot["isexist"].ToString().Equals("1"))
+                    {
+                        MessageBox.Show("이미 가입된 Email입니다.");
+                        return true;
+                    }
+                    else
+                    {
+                        return false;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("서버 응답 에러");
+                    return true;
+                }
             }
-
-            return false;
+            else
+            {
+                MessageBox.Show("statuscode값 없음.");
+                return true;
+            }
         }
 
         private bool SendEmail(string email)
@@ -126,7 +148,7 @@ namespace CatLedgerWinForm
                 MessageBox.Show("유효한 Email 주소가 아닙니다. Email 주소를 확인해주세요.");
                 return;
             }
-            else if (false /*== IsExistEmail(Email)*/)
+            else if (true == IsExistEmail(Email))
             {
                 MessageBox.Show("중복된 이메일 입니다. ");
                 return;
@@ -169,10 +191,10 @@ namespace CatLedgerWinForm
             string resultGet = RestApiInterface.RequestURL(SignUpURL, RequestParam.ToString());
 
             JObject jsonRoot = JObject.Parse(resultGet);
-            if (jsonRoot.ContainsKey("status"))
+            if (jsonRoot.ContainsKey("statuscode"))
             {
                 // 200 : 정상, 300 : 중복
-                if(true == jsonRoot["status"].ToString().Equals("200"))
+                if(true == jsonRoot["statuscode"].ToString().Equals("200"))
                 {
                     MessageBox.Show("회원가입 성공!");
                 }
@@ -180,6 +202,10 @@ namespace CatLedgerWinForm
                 {
                     MessageBox.Show("회원가입 실패");
                 }
+            }
+            else
+            {
+                MessageBox.Show("statuscode값 없음.");
             }
         }
 

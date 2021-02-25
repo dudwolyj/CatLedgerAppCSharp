@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json.Linq;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -37,6 +38,7 @@ namespace CatLedgerWinForm
             }
             else
             {
+                StringBuilder errorMessage = new StringBuilder();
                 StringBuilder RequestParam = new StringBuilder();
                 RequestParam.Append("email=");
                 RequestParam.Append(Email);
@@ -44,10 +46,41 @@ namespace CatLedgerWinForm
                 RequestParam.Append(Password);
 
                 string Response = RestApiInterface.RequestURL(LoginURL, RequestParam.ToString());
-                MessageBox.Show(Response);
 
-                Program.frmMainPage.Show();
-                Program.frmLogIn.Hide();
+                try
+                {
+                    JObject jsonRoot = JObject.Parse(Response);
+                    if (jsonRoot.ContainsKey("statuscode"))
+                    {
+                        // 200 : 정상, 300 : 중복
+                        if (jsonRoot["statuscode"].ToString().Equals("200"))
+                        {
+                            if (jsonRoot.ContainsKey("token"))
+                            {
+                                Program.commonData.authToken = jsonRoot["token"].ToString();
+                                Program.frmMainPage.InitTabList();
+                                Program.frmMainPage.Show();
+                                Program.frmLogIn.Hide();
+                            }
+                            else
+                            {
+                                MessageBox.Show("로그인에 실패하였습니다./r/n error : token값 없음.");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("로그인에 실패하였습니다./r/n error : " + jsonRoot["message"].ToString());
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("로그인에 실패하였습니다./r/n error : statuscode값 없음");
+                    }
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
             }
         }
     }
