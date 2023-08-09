@@ -7,5 +7,7 @@ namespace CatLedgerWinForm
     class CommonData
     {
         public string authToken = null;
+
+        // 컨플릭 테스트 1111
     }
 }
