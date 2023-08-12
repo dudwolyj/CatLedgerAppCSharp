@@ -12,5 +12,8 @@ namespace CatLedgerWinForm
 
 
         // [User1] 뭔가를 수정함!
+
+
+        // [User2] 나도 뭔가를 수정함
     }
 }
