@@ -25,6 +25,8 @@ namespace CatLedgerWinForm
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(frmLogIn);
+
+            // [User2] 나는 여기에 수정함
         }
     }
 }

@@ -1,7 +1,3 @@
-
-.vs/CatLedgerWinForm/v16/.suo
-.vs/CatLedgerWinForm/v16/.suo
-.vs/CatLedgerWinForm/v16/.suo
 *.json
 *.props
 *.targets
@@ -12,6 +8,4 @@ CatLedgerWinForm/obj/Debug/netcoreapp3.1/CatLedgerWinForm.assets.cache
 CatLedgerWinForm/obj/Debug/netcoreapp3.1/CatLedgerWinForm.csproj.AssemblyReference.cache
 CatLedgerWinForm/obj/Debug/netcoreapp3.1/CatLedgerWinForm.GeneratedMSBuildEditorConfig.editorconfig
 CatLedgerWinForm/obj/project.nuget.cache
-.vs/CatLedgerWinForm/v16/.suo
-.vs/CatLedgerWinForm/v16/.suo
 .vs/CatLedgerWinForm/v16/.suo
