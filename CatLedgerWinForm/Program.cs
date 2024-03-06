@@ -27,6 +27,7 @@ namespace CatLedgerWinForm
             Application.Run(frmLogIn);
 
             // [User2] 나는 여기에 수정함
+            // [User2] 나는 여기에 수정함2222222
         }
     }
 }
